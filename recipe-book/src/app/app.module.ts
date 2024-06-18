@@ -7,11 +7,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { RecipeBookComponent } from './components/recipe-book/recipe-book.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { RecipeListComponent } from './components/recipe-book/recipe-list/recipe-list.component';
-import { RecipeItemComponent } from './components/recipe-book/recipe-item/recipe-item.component';
+import { RecipeItemComponent } from './components/recipe-book/recipe-list/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './components/recipe-book/recipe-detail/recipe-detail.component';
 import { ShoppingListEditComponent } from './components/shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { FormsModule } from '@angular/forms';
 import { DropdownDirective } from './components/shared/dropdown.directive';
+import { RecipeEditComponent } from './components/recipe-book/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,10 @@ import { DropdownDirective } from './components/shared/dropdown.directive';
     RecipeDetailComponent,
     ShoppingListEditComponent,
     DropdownDirective,
+    RecipeEditComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

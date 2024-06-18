@@ -48,4 +48,8 @@ export class RecipeBookService {
     // Returns a copy of the `recipes` array
     return this.recipes.slice();
   }
+
+  getRecipe(recipeId: number) {
+    return this.recipes[recipeId]
+  }
 }
