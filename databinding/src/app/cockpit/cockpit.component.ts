@@ -16,12 +16,12 @@ export class CockpitComponent implements OnInit {
   // EventEmitter triggers an event to a parent component listening for the event
   // use the `emit()` function to trigger the event.
   // @Output() allows the property to flow out of the component when a change is detected
-  @Output() serverCreated = new EventEmitter<{
+  @Output() serverCreatedEmitter = new EventEmitter<{
     serverName: string;
     serverContent: string;
   }>();
 
-  @Output() blueprintCreated = new EventEmitter<{
+  @Output() blueprintCreatedEmitter = new EventEmitter<{
     blueprintName: string;
     blueprintContent: string;
   }>();
@@ -39,14 +39,14 @@ export class CockpitComponent implements OnInit {
   ngOnInit() {}
 
   onAddServer(nameInput: HTMLFormElement) {
-    this.serverCreated.emit({
+    this.serverCreatedEmitter.emit({
       serverName: nameInput.value,
       serverContent: this.newServerContent,
     });
   }
 
   onAddBlueprint(nameInput: HTMLFormElement) {
-    this.blueprintCreated.emit({
+    this.blueprintCreatedEmitter.emit({
       blueprintName: nameInput.value,
       blueprintContent: this.newServerContent,
     });
