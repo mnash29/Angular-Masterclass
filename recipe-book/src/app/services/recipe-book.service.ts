@@ -1,6 +1,7 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from '../components/shared/recipe.model';
 import { Ingredient } from '../components/shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 /**
  * Using the `providedIn` property we can lazy load the service anywhere needed
@@ -15,7 +16,7 @@ import { Ingredient } from '../components/shared/ingredient.model';
   providedIn: 'root',
 })
 export class RecipeBookService {
-  recipeSelected = new EventEmitter<Recipe>();
+  recipeSelected = new Subject<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe(

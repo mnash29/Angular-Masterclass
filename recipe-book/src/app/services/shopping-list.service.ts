@@ -1,5 +1,6 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Ingredient } from '../components/shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 /**
  * Using the `providedIn` property we can lazy load the service anywhere needed
@@ -14,7 +15,7 @@ import { Ingredient } from '../components/shared/ingredient.model';
   providedIn: 'root',
 })
 export class ShoppingListService {
-  addIngredientEmitter = new EventEmitter<Ingredient[]>();
+  addIngredientEmitter = new Subject<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apple', 8),
@@ -29,11 +30,11 @@ export class ShoppingListService {
 
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
-    this.addIngredientEmitter.emit(this.ingredients.slice());
+    this.addIngredientEmitter.next(this.ingredients.slice());
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
-    this.addIngredientEmitter.emit(this.ingredients.slice());
+    this.addIngredientEmitter.next(this.ingredients.slice());
   }
 }
