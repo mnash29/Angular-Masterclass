@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from '../components/shared/recipe.model';
+import { Ingredient } from '../components/shared/ingredient.model';
 
 /**
  * Using the `providedIn` property we can lazy load the service anywhere needed
@@ -20,12 +21,24 @@ export class RecipeBookService {
     new Recipe(
       'Test Recipe',
       'This is a test',
-      'https://cdn.loveandlemons.com/wp-content/uploads/2019/06/homemade-pizza.jpg'
+      'https://cdn.loveandlemons.com/wp-content/uploads/2019/06/homemade-pizza.jpg',
+      [
+        new Ingredient('Flour', 5),
+        new Ingredient('Tomato', 2),
+        new Ingredient('Marinara', 1),
+        new Ingredient('Mozzarella', 1),
+      ]
     ),
     new Recipe(
       'Test Recipe #2',
       'This is the second test',
-      'https://sallysbakingaddiction.com/wp-content/uploads/2015/04/homemade-basil-pesto-2.jpg'
+      'https://sallysbakingaddiction.com/wp-content/uploads/2015/04/homemade-basil-pesto-2.jpg',
+      [
+        new Ingredient('Parsley', 1),
+        new Ingredient('Olive Oil', 1),
+        new Ingredient('Garlic', 1),
+        new Ingredient('Pine Nuts', 1),
+      ]
     ),
   ];
 
