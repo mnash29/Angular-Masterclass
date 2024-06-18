@@ -1,0 +1,13 @@
+.row {
+    margin-top: 1rem;
+}
+
+button {
+    margin-right: 0.5rem;
+}
+
+/* Add red border around any form input/textarea that is invalid */
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
