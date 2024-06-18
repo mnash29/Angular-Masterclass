@@ -1,0 +1,46 @@
+<!-- <label>Server Name</label>
+<input 
+    type="text" 
+    class="form-control" 
+    (input)="onUpdateServerName($event)" >
+
+<input 
+    type="text" 
+    class="form-control" 
+    [(ngModel)]="serverName">
+
+<p>{{ serverName }}</p> -->
+<!-- 
+<label>Username</label>
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="username">
+
+<p>Username is: {{ username }}</p>
+
+<button 
+    class="btn btn-primary"
+    [disabled]="isUsernameEmpty()"
+    (click)="clearUsername()">Clear Username</button> -->
+
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated">Server was created, Server name is {{ serverName }}</p>
+<!-- <ng-template #noServer>
+    <p>No server was created.</p>
+</ng-template> -->
+<app-server></app-server>
+<app-server></app-server>
+
+<button class="btn btn-primary"
+    (click)="onDisplayDetails()">Display Details</button>
+<p *ngIf="displayDetails == true">Where ever you go, there you are...</p>
+<!-- <ol *ngIf="displayDetails">
+    <li *ngFor="item in buttonClicks"
+        [ngClass]="{blue: true}">{{ item }}</li>
+</ol> -->
+<div *ngFor="let click of buttonClicks; odd as o; even as e"
+[ngClass]="{'white-text': o, 'green-text': e}">{{ click }}</div>
