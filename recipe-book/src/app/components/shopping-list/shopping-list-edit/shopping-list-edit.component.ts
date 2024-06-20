@@ -32,8 +32,9 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
   constructor(private shoppingListService: ShoppingListService) {}
 
   ngOnInit(): void {
+    // Subscription to event emitted when an ingredient is clicked in the shopping-list component
     this.subscriptions.add(
-      this.shoppingListService.startedEditing.subscribe((index) => {
+      this.shoppingListService.startedEditingSubject.subscribe((index) => {
         this.editMode = true;
         this.editIngredientIndex = index;
         this.editIngredient = this.shoppingListService.getIngredient(index);
@@ -50,6 +51,10 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
+  /**
+   * Called by ngSubmit on ingredient FormGroup created by ngForm
+   * @param form 
+   */
   onIngredientSubmit(form: NgForm) {
     // this.shoppingListService.addIngredient({
     //   name: this.nameInput.nativeElement.value,

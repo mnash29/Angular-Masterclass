@@ -17,7 +17,7 @@ import { Subject } from 'rxjs';
 export class ShoppingListService {
   addIngredientSubject = new Subject<Ingredient[]>();
   deleteIngredientSubject = new Subject<Ingredient[]>();
-  startedEditing = new Subject<number>();
+  startedEditingSubject = new Subject<number>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apple', 8),
@@ -34,21 +34,38 @@ export class ShoppingListService {
     return this.ingredients[index];
   }
 
+  /**
+   * Emits an event when a single ingredient is added to the shopping-list
+   * @param ingredient 
+   */
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     this.addIngredientSubject.next(this.ingredients.slice());
   }
 
+  /**
+   * Emits an event when a list of ingredients are added to the shopping-list
+   * @param ingredients 
+   */
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
     this.addIngredientSubject.next(this.ingredients.slice());
   }
 
+  /**
+   * Emits an event when an ingredient is updated  in the shopping-list
+   * @param index 
+   * @param newIngredient 
+   */
   updateIngredient(index: number, newIngredient: Ingredient) {
     this.ingredients[index] = newIngredient;
     this.addIngredientSubject.next(this.ingredients.slice());
   }
 
+  /**
+   * Emits an event when an ingredient is deleted from the shopping-list
+   * @param index
+   */
   deleteIngredient(index: number) {
     this.ingredients.splice(index, 1);
     this.deleteIngredientSubject.next(this.ingredients.slice());

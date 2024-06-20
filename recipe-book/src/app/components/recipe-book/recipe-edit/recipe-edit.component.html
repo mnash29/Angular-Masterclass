@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xs-12">
           <button class="btn btn-success" type="submit" [disabled]="!recipeForm.valid">Save</button>
-          <button class="btn btn-danger" type="button">Cancel</button>
+          <button routerLink="../" class="btn btn-danger" type="button">Cancel</button>
         </div>
       </div>
       <!-- The Name field of the recipe FormGroup -->
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <!-- The Image Path field of the recipe FormGroup -->
+      <!-- The Image Path field of the recipe FormGroup with preview -->
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
@@ -31,16 +31,17 @@
               id="imagePath"
               class="form-control"
               formControlName="imagePath"
+              #imagePath
             />
           </div>
         </div>
       </div>
-      <!-- The Description field of the recipe FormGroup -->
       <div class="row">
         <div class="col-xs-12">
-          <img src="" alt="" class="img-responsive" />
+          <img src="imagePath.value" alt="" class="img-responsive" />
         </div>
       </div>
+      <!-- The Description field of the recipe FormGroup -->
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
@@ -75,7 +76,7 @@
               />
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger">X</button>
+              <button (click)="onDeleteIngredient(i)" type="button" class="btn btn-danger">X</button>
             </div>
           </div>
           <hr />

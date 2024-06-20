@@ -16,7 +16,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class RecipeBookService {
-  recipeSelected = new Subject<Recipe>();
+  recipeSelectedSubject = new Subject<Recipe>();
+  recipeChangedSubject = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -52,5 +53,24 @@ export class RecipeBookService {
 
   getRecipe(recipeId: number) {
     return this.recipes[recipeId]
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipeChangedSubject.next(this.recipes.slice());
+  }
+  
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipeChangedSubject.next(this.recipes.slice());
+  }
+  
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipeChangedSubject.next(this.recipes.slice());
+  }
+
+  deleteIngredient(index: number) {
+
   }
 }

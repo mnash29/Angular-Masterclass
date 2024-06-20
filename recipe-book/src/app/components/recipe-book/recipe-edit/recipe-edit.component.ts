@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeBookService } from 'src/app/services/recipe-book.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private recipeService: RecipeBookService
   ) {}
 
@@ -33,8 +34,17 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
+  /**
+   * Called by ngSubmit button on recipe FormGroup 
+   */
   onSubmit() {
-    console.log(this.recipeForm);
+    if (this.editMode) {
+      this.recipeService.updateRecipe(this.recipeId, this.recipeForm.value);
+    } else {
+      this.recipeService.addRecipe(this.recipeForm.value);
+    }
+
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   /**
@@ -50,6 +60,10 @@ export class RecipeEditComponent implements OnInit {
         ]),
       })
     );
+  }
+
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
 
   /**

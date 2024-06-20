@@ -16,8 +16,9 @@ export class RecipeBookComponent implements OnInit, OnDestroy {
   constructor(private recipeService: RecipeBookService) {}
 
   ngOnInit(): void {
+    // Subscription to event emitted when a recipe is selected
     this.subscriptions.add(
-      this.recipeService.recipeSelected.subscribe((recipe: Recipe) => {
+      this.recipeService.recipeSelectedSubject.subscribe((recipe: Recipe) => {
         this.selectedRecipe = recipe;
       })
     );
