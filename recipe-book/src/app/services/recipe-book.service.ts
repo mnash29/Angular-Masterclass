@@ -16,33 +16,34 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class RecipeBookService {
-  recipeSelectedSubject = new Subject<Recipe>();
-  recipeChangedSubject = new Subject<Recipe[]>();
+  recipeSelected$ = new Subject<Recipe>();
+  recipeChanged$ = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Test Recipe',
-      'This is a test',
-      'https://cdn.loveandlemons.com/wp-content/uploads/2019/06/homemade-pizza.jpg',
-      [
-        new Ingredient('Flour', 5),
-        new Ingredient('Tomato', 2),
-        new Ingredient('Marinara', 1),
-        new Ingredient('Mozzarella', 1),
-      ]
-    ),
-    new Recipe(
-      'Test Recipe #2',
-      'This is the second test',
-      'https://sallysbakingaddiction.com/wp-content/uploads/2015/04/homemade-basil-pesto-2.jpg',
-      [
-        new Ingredient('Parsley', 1),
-        new Ingredient('Olive Oil', 1),
-        new Ingredient('Garlic', 1),
-        new Ingredient('Pine Nuts', 1),
-      ]
-    ),
-  ];
+  private recipes: Recipe[] = [];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Test Recipe',
+  //     'This is a test',
+  //     'https://cdn.loveandlemons.com/wp-content/uploads/2019/06/homemade-pizza.jpg',
+  //     [
+  //       new Ingredient('Flour', 5),
+  //       new Ingredient('Tomato', 2),
+  //       new Ingredient('Marinara', 1),
+  //       new Ingredient('Mozzarella', 1),
+  //     ]
+  //   ),
+  //   new Recipe(
+  //     'Test Recipe #2',
+  //     'This is the second test',
+  //     'https://sallysbakingaddiction.com/wp-content/uploads/2015/04/homemade-basil-pesto-2.jpg',
+  //     [
+  //       new Ingredient('Parsley', 1),
+  //       new Ingredient('Olive Oil', 1),
+  //       new Ingredient('Garlic', 1),
+  //       new Ingredient('Pine Nuts', 1),
+  //     ]
+  //   ),
+  // ];
 
   constructor() {}
 
@@ -55,22 +56,27 @@ export class RecipeBookService {
     return this.recipes[recipeId]
   }
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.notifyOnChange();
+  }
+
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
-    this.recipeChangedSubject.next(this.recipes.slice());
+    this.notifyOnChange();
   }
   
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
-    this.recipeChangedSubject.next(this.recipes.slice());
+    this.notifyOnChange();
   }
   
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
-    this.recipeChangedSubject.next(this.recipes.slice());
+    this.notifyOnChange();
   }
-
-  deleteIngredient(index: number) {
-
+  
+  notifyOnChange() {
+    this.recipeChanged$.next(this.recipes.slice());
   }
 }

@@ -21,7 +21,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
     // Subscription to event emitted when ingredient is added to shopping-list
     this.subscriptions.add(
-      this.shoppingListService.addIngredientSubject.subscribe(
+      this.shoppingListService.addIngredient$.subscribe(
         (ingredients: Ingredient[]) => {
           this.ingredients = ingredients;
         }
@@ -30,7 +30,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
     // Subscription to event emitted when an ingredient is deleted from shopping-list
     this.subscriptions.add(
-      this.shoppingListService.deleteIngredientSubject.subscribe(
+      this.shoppingListService.deleteIngredient$.subscribe(
         (ingredients: Ingredient[]) => {
           this.ingredients = ingredients;
         }
@@ -48,6 +48,6 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
    * @param index 
    */
   onEditIngredient(index: number) {
-    this.shoppingListService.startedEditingSubject.next(index);
+    this.shoppingListService.startedEditing$.next(index);
   }
 }

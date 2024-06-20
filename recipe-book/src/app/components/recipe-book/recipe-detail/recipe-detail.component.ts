@@ -35,7 +35,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
 
     // Subscription for recipe detail changed
     this.subscriptions.add(
-      this.recipeService.recipeChangedSubject.subscribe((recipes) => {
+      this.recipeService.recipeChanged$.subscribe((recipes) => {
         this.recipe = recipes[this.recipeId];
       })
     );

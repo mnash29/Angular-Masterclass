@@ -34,7 +34,7 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Subscription to event emitted when an ingredient is clicked in the shopping-list component
     this.subscriptions.add(
-      this.shoppingListService.startedEditingSubject.subscribe((index) => {
+      this.shoppingListService.startedEditing$.subscribe((index) => {
         this.editMode = true;
         this.editIngredientIndex = index;
         this.editIngredient = this.shoppingListService.getIngredient(index);

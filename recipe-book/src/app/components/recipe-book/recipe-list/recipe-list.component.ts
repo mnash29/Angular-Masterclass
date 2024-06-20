@@ -21,7 +21,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
     // Subscription to event emitted when recipe detail is changed
     this.subscriptions.add(
-      this.recipeService.recipeChangedSubject.subscribe((recipes) => {
+      this.recipeService.recipeChanged$.subscribe((recipes) => {
         this.recipes = recipes;
       })
     );

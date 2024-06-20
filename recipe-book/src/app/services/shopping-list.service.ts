@@ -15,9 +15,9 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class ShoppingListService {
-  addIngredientSubject = new Subject<Ingredient[]>();
-  deleteIngredientSubject = new Subject<Ingredient[]>();
-  startedEditingSubject = new Subject<number>();
+  addIngredient$ = new Subject<Ingredient[]>();
+  deleteIngredient$ = new Subject<Ingredient[]>();
+  startedEditing$ = new Subject<number>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Apple', 8),
@@ -40,7 +40,7 @@ export class ShoppingListService {
    */
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
-    this.addIngredientSubject.next(this.ingredients.slice());
+    this.addIngredient$.next(this.ingredients.slice());
   }
 
   /**
@@ -49,7 +49,7 @@ export class ShoppingListService {
    */
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
-    this.addIngredientSubject.next(this.ingredients.slice());
+    this.addIngredient$.next(this.ingredients.slice());
   }
 
   /**
@@ -59,7 +59,7 @@ export class ShoppingListService {
    */
   updateIngredient(index: number, newIngredient: Ingredient) {
     this.ingredients[index] = newIngredient;
-    this.addIngredientSubject.next(this.ingredients.slice());
+    this.addIngredient$.next(this.ingredients.slice());
   }
 
   /**
@@ -68,6 +68,6 @@ export class ShoppingListService {
    */
   deleteIngredient(index: number) {
     this.ingredients.splice(index, 1);
-    this.deleteIngredientSubject.next(this.ingredients.slice());
+    this.deleteIngredient$.next(this.ingredients.slice());
   }
 }

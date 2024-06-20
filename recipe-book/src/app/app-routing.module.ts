@@ -4,6 +4,7 @@ import { RecipeBookComponent } from './components/recipe-book/recipe-book.compon
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { RecipeDetailComponent } from './components/recipe-book/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './components/recipe-book/recipe-edit/recipe-edit.component';
+import { RecipesResolverService } from './services/recipes-resolver.service';
 
 /**
  *  Path: The router API breaks down the entire URL into individual fragments. The path property
@@ -36,10 +37,12 @@ const routes: Routes = [
       {
         path: ':id',
         component: RecipeDetailComponent,
+        resolve: [RecipesResolverService],
       },
       {
         path: ':id/edit',
         component: RecipeEditComponent,
+        resolve: [RecipesResolverService],
       },
     ],
   },
