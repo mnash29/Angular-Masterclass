@@ -13,7 +13,6 @@ export class StorageService {
     private recipeService: RecipeBookService
   ) {}
 
-  setRecipes;
   /**
    * Store recipes using Firebase Realtime Database reference URL
    */
