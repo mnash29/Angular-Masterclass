@@ -2,9 +2,9 @@
   <button (click)="onSelectUser()">
     <img 
       [src]="selectedUserAvatarPath()"
-      [alt]="selectedUser().name"
+      [alt]="name()"
     />
     <!-- selectedUser() calls the signals `read` function -->
-    <span>{{ selectedUser().name }}</span>
+    <span>{{ name() }}</span>
   </button>
 </div>
