@@ -4,6 +4,7 @@ import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from './tasks/tasks.component';
 import { CommonModule } from '@angular/common';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users = DUMMY_USERS;
+  users: User[] = DUMMY_USERS;
 
-  selectedUser: any;
+  selectedUser?: User
 
   onSelectUser(id: string) {
     this.selectedUser = DUMMY_USERS.find((user) => user.id === id);

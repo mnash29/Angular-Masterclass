@@ -1,4 +1,5 @@
 import { Component, input, computed, output } from '@angular/core';
+import { User } from '../models/user';
 
 // import { DUMMY_USERS } from '../dummy-users';
 
@@ -12,24 +13,34 @@ import { Component, input, computed, output } from '@angular/core';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  // Alertnative to `Output` decorator
+  /**
+   * @Output({required: true}) didSelectedUser = new EventEmitter();
+   *
+   * Using signals, Angular is notified what a change occurs to update
+   * all components of the app using this `signal` (change detection)
+   * selectedUser = signal(DUMMY_USERS[randomIndex]);
+   *
+   * Using `computed`, the value only changes when the underlying signal is invoked
+   * alternative to using `getter` method
+   *
+   * @Input({required: true}) avatar!: string;
+   * @Input({required: true}) name!: string;
+   */
+
+  /**
+   * Alternative to `Input` decorator and exposed as a `Signal`
+   */
+  readonly user = input.required<User>();
+  
+  /**
+   * Alternative to `Output` decorator but pretty much identical functionality
+   */
   readonly didSelectedUser = output<string>();
-  // @Output({required: true}) didSelectedUser = new EventEmitter();
-
-  // Using signals, Angular is notified what a change occurs to update
-  // all components of the app using this `signal` (change detection)
-  // selectedUser = signal(DUMMY_USERS[randomIndex]);
-
-  // Using `computed`, the value only changes when the underlying signal is invoked
-  // alternative to using `getter` method
-  selectedUserAvatarPath = computed(() => 'assets/users/' + this.avatar());
-
-  // Alternative to `Input` decorator and exposed as a `Signal`
-  readonly avatar = input.required<string>();
-  readonly name = input.required<string>();
-  readonly id = input.required<string>();
-  // @Input({required: true}) avatar!: string;
-  // @Input({required: true}) name!: string;
+  
+  /**
+   * Called only when the underlying `avatar` value has changed
+   */
+  selectedUserAvatarPath = computed(() => 'assets/users/' + this.user().avatar);
 
   /**
    * getter for selected user avatar path but is triggered whenever the component
@@ -43,6 +54,6 @@ export class UserComponent {
    * Event listener for user button clicked
    */
   onSelectUser() {
-    this.didSelectedUser.emit(this.id());
+    this.didSelectedUser.emit(this.user().id);
   }
 }

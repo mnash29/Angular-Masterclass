@@ -8,6 +8,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  readonly name = input.required<string>();
+  // @Input() name?: string;
+  readonly name = input<string>();
 
 }
