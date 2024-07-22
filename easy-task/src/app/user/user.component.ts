@@ -31,6 +31,7 @@ export class UserComponent {
    * Alternative to `Input` decorator and exposed as a `Signal`
    */
   readonly user = input.required<User>();
+  readonly selected = input.required<boolean>();
   
   /**
    * Alternative to `Output` decorator but pretty much identical functionality
