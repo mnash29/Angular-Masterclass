@@ -6,11 +6,12 @@ import { TaskComponent } from './task/task.component';
   standalone: true,
   imports: [TaskComponent],
   templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.css'
+  styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
   // @Input() name?: string;
-  readonly name = input<string>();
+  readonly name = input.required<string>();
+  readonly userId = input.required<string>();
 
   dummyTasks = [
     {
@@ -36,5 +37,9 @@ export class TasksComponent {
         'Prepare and describe an issue template which will help with project management',
       dueDate: '2024-06-15',
     },
-  ]
+  ];
+
+  get selectedUserTasks() {
+    return this.dummyTasks.filter((task) => task.userId === this.userId());
+  }
 }

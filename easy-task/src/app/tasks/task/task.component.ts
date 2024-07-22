@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Task } from '../../models/task';
 
 @Component({
   selector: 'app-task',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class TaskComponent {
 
+  readonly task = input.required<Task>();
 }
