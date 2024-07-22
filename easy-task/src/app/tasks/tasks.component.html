@@ -2,7 +2,7 @@
     <header>
         <h2>{{ name() }}'s Tasks</h2>
         <menu>
-            <button>Add Task</button>
+            <button (click)="onToggleAddTask()">Add Task</button>
         </menu>
     </header>
 
@@ -13,4 +13,8 @@
             </li>
         }
     </ul>
+
+    @if (isAddingNewTask) {
+        <app-new-task (cancelAddTask)="onToggleAddTask()" />
+    }
 </section>
