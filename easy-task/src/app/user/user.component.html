@@ -1,4 +1,4 @@
-<div>
+<app-card>
   <button [class.active]="selected()" (click)="onSelectUser()">
     <img 
       [src]="selectedUserAvatarPath()"
@@ -7,4 +7,4 @@
     <!-- selectedUser() calls the signals `read` function -->
     <span>{{ user().name }}</span>
   </button>
-</div>
+</app-card>

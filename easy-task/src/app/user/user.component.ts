@@ -1,5 +1,6 @@
 import { Component, input, computed, output } from '@angular/core';
 import { User } from '../models/user';
+import { CardComponent } from '../shared/card/card.component';
 
 // import { DUMMY_USERS } from '../dummy-users';
 
@@ -8,7 +9,7 @@ import { User } from '../models/user';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
