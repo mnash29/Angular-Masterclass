@@ -1,8 +1,11 @@
+@if (isAddingNewTask) {
+    <app-new-task (cancelAddTask)="onToggleAddTaskDialog()" (submitNewTask)="onTaskCreate($event)" />
+}
 <section id="tasks">
     <header>
         <h2>{{ name() }}'s Tasks</h2>
         <menu>
-            <button (click)="onToggleAddTask()">Add Task</button>
+            <button (click)="onToggleAddTaskDialog()">Add Task</button>
         </menu>
     </header>
 
@@ -14,7 +17,4 @@
         }
     </ul>
 
-    @if (isAddingNewTask) {
-        <app-new-task (cancelAddTask)="onToggleAddTask()" />
-    }
 </section>

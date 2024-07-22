@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { TaskData } from '../models/task';
 
 @Component({
   selector: 'app-tasks',
@@ -46,11 +47,26 @@ export class TasksComponent {
     return this.dummyTasks.filter((task) => task.userId === this.userId());
   }
 
+  private generateTaskId(max: number) {
+    return `t${Math.floor(Math.random() * max)}`;
+  }
+
   onCompleteTask(id: string) {
     this.dummyTasks = this.dummyTasks.filter((task) => task.id !== id);
   }
 
-  onToggleAddTask() {
+  onToggleAddTaskDialog() {
     this.isAddingNewTask = !this.isAddingNewTask;
+  }
+
+  onTaskCreate(taskData: TaskData) {
+    this.dummyTasks.push({
+      id: this.generateTaskId(6),
+      userId: this.userId(),
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date,
+    })
+    this.onToggleAddTaskDialog();
   }
 }
