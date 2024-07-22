@@ -1,11 +1,13 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Task } from '../../models/task';
 import { CardComponent } from '../../shared/card/card.component';
+import { DatePipe } from '@angular/common';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, DatePipe],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
@@ -13,10 +15,10 @@ export class TaskComponent {
 
   readonly task = input.required<Task>();
 
-  // @Output() complete = new EventEmitter<string>();
-  readonly complete = output<string>();
+  // Alternative to using the constructor to inject a service
+  private taskService = inject(TasksService);
 
   onClickComplete() {
-    this.complete.emit(this.task().id);
+    this.taskService.removeTask(this.task().id);
   }
 }
