@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AnnualData } from './models/Investment';
+import { AnnualData } from './models/investment.model';
 
 @Component({
   selector: 'app-root',

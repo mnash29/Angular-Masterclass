@@ -1,7 +1,7 @@
 import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InvestmentService } from '../services/investment.service';
-import { AnnualData } from '../models/Investment';
+import { AnnualData } from '../models/investment.model';
 
 @Component({
   selector: 'app-user-input',

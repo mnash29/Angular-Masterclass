@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   AnnualData,
   CalculationData,
-} from '../models/Investment';
+} from '../models/investment.model';
 
 @Injectable({
   providedIn: 'root',
