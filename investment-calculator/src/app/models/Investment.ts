@@ -1,4 +1,4 @@
-export interface CalculationPayload {
+export interface CalculationData {
     initialInvestment: number;
     annualInvestment: number;
     expectedReturn: number;

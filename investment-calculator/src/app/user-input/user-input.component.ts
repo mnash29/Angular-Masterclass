@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InvestmentService } from '../services/investment.service';
 import { AnnualData } from '../models/Investment';
@@ -13,23 +13,24 @@ import { AnnualData } from '../models/Investment';
 export class UserInputComponent {
   initialInvestmentFormInput: number = 0;
   annualInvestmentFormInput: number = 0;
-  expectedReturnFormInput: number = 0;
-  durationFormInput: number = 0;
-  annualData: AnnualData[] = [];
+  expectedReturnFormInput: number = 5;
+  durationFormInput: number = 10;
 
+  calculationResultsOutput = output<AnnualData[]>();
+  
   constructor(private investmentService: InvestmentService) {}
-
+  
   onSubmitCalculate() {
-    const payload = {
-      initialInvestment: this.initialInvestmentFormInput,
-      annualInvestment: this.annualInvestmentFormInput,
-      expectedReturn: this.expectedReturnFormInput,
-      duration: this.durationFormInput,
+    const calcPayload = {
+      initialInvestment: +this.initialInvestmentFormInput,
+      annualInvestment: +this.annualInvestmentFormInput,
+      expectedReturn: +this.expectedReturnFormInput,
+      duration: +this.durationFormInput,
     };
-    this.annualData =
-      this.investmentService.calculateInvestmentResults(payload);
+    const annualData =
+      this.investmentService.calculateInvestmentResults(calcPayload);
 
-    console.log(this.annualData);
+    this.calculationResultsOutput.emit(annualData);
   }
 
 }
