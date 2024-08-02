@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { AnnualData } from '../models/investment.model';
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-investment-results',
