@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
-import { AnnualData } from '../models/investment.model';
+import { Component } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { InvestmentService } from '../services/investment.service';
 
 @Component({
   selector: 'app-investment-results',
@@ -10,10 +10,10 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './investment-results.component.css'
 })
 export class InvestmentResultsComponent {
-  calculatedResultsInput = input<AnnualData[]>();
 
-  // Used in @for tracking method
-  trackResult(index: number, data: AnnualData) {    
-    return index + data.year;
+  constructor (private investmentService: InvestmentService) {}
+
+  get investmentResults() {
+    return this.investmentService.annualInvestmentData;
   }
 }

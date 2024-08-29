@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import {
   AnnualData,
-  CalculationData,
+  InvestmentInput,
 } from '../models/investment.model';
 
 @Injectable({
@@ -9,13 +9,13 @@ import {
 })
 export class InvestmentService {
 
-  constructor() {}
+  annualInvestmentData = signal<AnnualData[]>([]);
 
-  calculateInvestmentResults(payload: CalculationData) {
+  calculateInvestmentResults(payload: InvestmentInput) {
     const { initialInvestment, annualInvestment, expectedReturn, duration } =
       payload;
 
-    let annualData: AnnualData[] = []
+    let resultData = []
     let investmentValue = initialInvestment;
 
     for (let i = 0; i < duration; i++) {
@@ -24,7 +24,7 @@ export class InvestmentService {
       investmentValue += interestEarnedInYear + annualInvestment;
       const totalInterest =
         investmentValue - annualInvestment * year - initialInvestment;
-      annualData.push({
+      resultData.push({
         year: year,
         interest: interestEarnedInYear,
         valueEndOfYear: investmentValue,
@@ -34,6 +34,6 @@ export class InvestmentService {
       });
     }
 
-    return annualData;
+    this.annualInvestmentData.set(resultData)
   }
 }
