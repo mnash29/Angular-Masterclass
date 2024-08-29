@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './support.component.html',
-  styleUrl: './support.component.css'
+  styleUrls: ['./support.component.css', '../dashboard.component.css'],
 })
 export class SupportComponent {
 
