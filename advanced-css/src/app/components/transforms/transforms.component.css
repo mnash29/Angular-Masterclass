@@ -3,7 +3,7 @@ img {
   display: block;
   margin: auto;
   margin-top: 1rem;
-  transition: transform 2s;
+  transition: transform 2s ease;
 }
 
 .container {
@@ -13,13 +13,13 @@ img {
 #cat-translate img:hover {
   transform: translate(500px, -200px);
 
-/* transform: translateY(-500px);
+  /* transform: translateY(-500px);
   transform: translateX(500px); */
 }
 
 #cat-resize img:hover {
   transform: scale(1.5);
-  
+
   /* transform: scaleX(2);
   transform: scaleY(2); */
 }
@@ -33,7 +33,7 @@ img {
 
 #cat-skew img:hover {
   transform: skew(60deg);
-  
+
   /* transform: skewX(30deg);
   transform: skewY(30deg); */
 }
@@ -47,4 +47,12 @@ img {
 
 #cat-origin img:hover {
   transform: rotate(30deg);
+}
+
+#cat-3d-translate img:hover {
+  transform: perspective(1000px) translateZ(500px);
+}
+
+#cat-3d-rotate img:hover {
+  transform: perspective(1000px) rotateX(45deg) rotateY(45deg);
 }
