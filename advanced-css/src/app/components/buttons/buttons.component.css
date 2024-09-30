@@ -1,0 +1,123 @@
+.single-rotate-in {
+    text-decoration: none;
+    color: #272727;
+    font-family: sans-serif;
+    font-size: 45px;
+    border: 5px solid #272727;
+    padding: 40px 80px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.single-rotate-in::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff200;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform-origin: top right;
+    transform: rotate(90deg);
+    transition: transform 1s;
+}
+
+.single-rotate-in:hover::before {
+    transform: rotate(0deg);
+}
+
+.single-slide-in {
+    text-decoration: none;
+    color: #351435;
+    font-family: sans-serif;
+    font-size: 45px;
+    border: 5px solid #351435;
+    padding: 40px 80px;
+    position: relative;
+    overflow: hidden;
+    transition: all 1s;
+    margin-bottom: 1rem;
+}
+
+.single-slide-in::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #351435;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transform: translateX(-100%);
+    /* transform: translateY(100%); */
+    transition: all 1s
+}
+
+.single-slide-in:hover::before {
+    transform: translateX(0);
+}
+
+.single-slide-in:hover {
+    color: white;
+}
+
+.quad-slide-out {
+    text-decoration: none;
+    color: #262626;
+    font-family: sans-serif;
+    font-size: 45px;
+    border: 5px solid #262626;
+    padding: 40px 80px;
+    position: relative;
+    /* overflow: hidden; */
+    transition: all 1s;
+    margin-bottom: 1rem;
+}
+
+.quad-slide-out::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    transition: all 1s;
+    transform: rotateX(90deg);
+    z-index: -1;
+}
+
+.quad-slide-out::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    transition: all 1s;
+    transform: rotateY(90deg);
+    z-index: -1;
+}
+
+.quad-slide-out:hover::before {
+    transform: rotateX(0deg);
+}
+
+.quad-slide-out:hover::after {
+    transform: rotateY(0deg);
+}
+
+.quad-slide-out:hover {
+    color: white;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
