@@ -2,12 +2,12 @@
     text-decoration: none;
     color: #272727;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 3rem;
     border: 5px solid #272727;
-    padding: 40px 80px;
+    padding: 1em 2em;
     position: relative;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .rotate-in-top-right::before {
@@ -32,13 +32,13 @@
     text-decoration: none;
     color: #351435;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 3rem;
     border: 5px solid #351435;
-    padding: 40px 80px;
+    padding: 1em 2em;
     position: relative;
     overflow: hidden;
     transition: all 1s;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .slide-in-left::before {
@@ -67,13 +67,13 @@
     text-decoration: none;
     color: #e18d2d;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 3rem;
     border: 5px solid #e18d2d;
-    padding: 40px 80px;
+    padding: 1em 2em;
     position: relative;
     /* overflow: hidden; */
     transition: all 1s;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .slide-out-quad::before {
@@ -116,16 +116,16 @@
 
 .grow-red {
     text-decoration: none;
-    padding: 40px 80px;
+    padding: 1.2em 2.5em;
     color: #e1332d;
     border: 5px solid #e1332d;
     text-transform: uppercase;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-family: 'Roboto';
     font-weight: 300;
     letter-spacing: -1px;
     transition: all 0.5s;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .grow-red:hover {
@@ -138,13 +138,13 @@
     text-decoration: none;
     color: #5d5d5d;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 3rem;
     border: 5px solid #5d5d5d;
-    padding: 40px 80px;
+    padding: 1em 2em;
     position: relative;
     overflow: hidden;
     transition: color 0.5s;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 
@@ -177,13 +177,13 @@
     text-decoration: none;
     color: #1f7ad0;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 3rem;
     border: 5px solid #1f7ad0;
-    padding: 40px 80px;
+    padding: 1em 2em;
     position: relative;
     overflow: hidden;
     transition: all 0.4s;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .slide-across-diagonal:hover {
@@ -212,13 +212,13 @@
     text-decoration: none;
     background-color: #a010c8;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 3rem;
     border: 5px solid #a010c8;
-    padding: 40px 80px;
+    padding: 1em 2em;
     position: relative;
     color: transparent;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .slide-out-diagonal::before {
@@ -266,12 +266,12 @@
     text-decoration: none;
     color: #262626;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 3rem;
     border: 5px solid #262626;
-    padding: 40px 80px;
+    padding: 1em 2em;
     position: relative;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .fade-in::before {
@@ -299,12 +299,12 @@
 .slide-in-radius {
     border: 5px solid lawngreen;
     color: lawngreen;
-    padding: 35px 90px;
-    font-size: 45px;
+    padding: 0.9em 2.2em;
+    font-size: 3rem;
     overflow: hidden;
     transition: all 0.5s;
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: em;
 }
 
 .slide-in-radius:hover {
@@ -340,4 +340,5 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 1em 0em;
 }
