@@ -1,4 +1,4 @@
-.single-rotate-in {
+.rotate-in-top-right {
     text-decoration: none;
     color: #272727;
     font-family: sans-serif;
@@ -10,7 +10,7 @@
     margin-bottom: 1rem;
 }
 
-.single-rotate-in::before {
+.rotate-in-top-right::before {
     content: '';
     position: absolute;
     left: 0;
@@ -24,11 +24,11 @@
     transition: transform 1s;
 }
 
-.single-rotate-in:hover::before {
+.rotate-in-top-right:hover::before {
     transform: rotate(0deg);
 }
 
-.single-slide-in {
+.slide-in-left {
     text-decoration: none;
     color: #351435;
     font-family: sans-serif;
@@ -41,7 +41,7 @@
     margin-bottom: 1rem;
 }
 
-.single-slide-in::before {
+.slide-in-left::before {
     content: '';
     position: absolute;
     left: 0;
@@ -55,62 +55,121 @@
     transition: all 1s
 }
 
-.single-slide-in:hover::before {
+.slide-in-left:hover::before {
     transform: translateX(0);
 }
 
-.single-slide-in:hover {
+.slide-in-left:hover {
     color: white;
 }
 
-.quad-slide-out {
+.slide-out-quad {
     text-decoration: none;
-    color: #262626;
+    color: rgb(255, 170, 0);
     font-family: sans-serif;
     font-size: 45px;
-    border: 5px solid #262626;
+    border: 5px solid rgb(255, 170, 0);
     padding: 40px 80px;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
     transition: all 1s;
     margin-bottom: 1rem;
 }
 
-.quad-slide-out::before {
+.slide-out-quad::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #262626;
+    background-color: rgb(255, 170, 0);
     transition: all 1s;
     transform: rotateX(90deg);
     z-index: -1;
 }
 
-.quad-slide-out::after {
+.slide-out-quad::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #262626;
+    background-color: rgb(255, 170, 0);
     transition: all 1s;
     transform: rotateY(90deg);
     z-index: -1;
 }
 
-.quad-slide-out:hover::before {
+.slide-out-quad:hover::before {
     transform: rotateX(0deg);
 }
 
-.quad-slide-out:hover::after {
+.slide-out-quad:hover::after {
     transform: rotateY(0deg);
 }
 
-.quad-slide-out:hover {
+.slide-out-quad:hover {
+    color: white;
+}
+
+.grow-red {
+    text-decoration: none;
+    padding: 40px 80px;
+    color: #e1332d;
+    border: 5px solid #e1332d;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    letter-spacing: -1px;
+    transition: all 0.5s;
+    margin-bottom: 1rem;
+}
+
+.grow-red:hover {
+    font-weight: 900;
+    letter-spacing: 10px;
+    border: 7px solid #e1332d;
+}
+
+.slide-in-top-content {
+    text-decoration: none;
+    color: #272727;
+    font-family: sans-serif;
+    font-size: 45px;
+    border: 5px solid #272727;
+    padding: 40px 80px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    margin-bottom: 1rem;
+}
+
+
+.slide-in-top-content::before {
+    content: 'Click me!';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #272727;
+    /* z-index: -1; */
+    transform: translateY(-100%);
+    transition: all 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-in-top-content:hover {
+    color: white;
+}
+
+.slide-in-top-content:hover:before {
+    transform: translateY(0);
     color: white;
 }
 
