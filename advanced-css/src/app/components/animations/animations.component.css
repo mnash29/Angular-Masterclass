@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-text {
+  background-color: #33d72d;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8rem;
+  line-height: 2em;
+  text-shadow: 0 1px 0 #efefef, 0 2px 0 #efefef, 0 3px 0 #efefef,
+    0 4px 0 #efefef, 0 30px 5px rgb(0, 0, 0, 0.1);
+}
+
+.floating-text h1 {
+    animation: float 3s linear alternate infinite;
+}
+
+@keyframes float {
+    from { transform: rotate(5deg);}
+    to { transform: rotate(-5deg);}
+}
