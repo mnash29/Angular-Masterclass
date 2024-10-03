@@ -108,6 +108,7 @@
   font-size: 3rem;
   border: 5px solid white;
   padding: 1em 2em;
+  position: relative;
   transition: all 0.2s;
 }
 
@@ -121,4 +122,41 @@
   33.3% { transform: rotate(10deg); }
   66.6% { transform: rotate(-10deg); }
   100% { transform: rotate(10deg); }
+}
+
+.side-scrolling-bar a {
+  text-decoration: none;
+  color: #262626;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 3rem;
+  padding: 1em 2em;
+  position: relative;
+  border: 5px solid #262626;
+  overflow: hidden;
+}
+
+.side-scrolling-bar a:before {
+  content: '';
+  background-color: red;
+  top: 0;
+  left: 0;
+  width: 3em;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  transform: skew(-15deg);
+  animation: scroll-right 1.2s linear infinite;
+  transition: all 0.5s;
+}
+
+.side-scrolling-bar a:hover::before {
+  width: 100%;
+  transform: skew(0deg);
+  animation: none;
+}
+
+@keyframes scroll-right {
+  from { left: -3.5em; }
+
+  to { left: 100%; }
 }
