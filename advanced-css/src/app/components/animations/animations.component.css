@@ -29,12 +29,17 @@
     animation: float 3s linear alternate infinite;
 }
 
+@keyframes float {
+    from { transform: rotate(5deg);}
+    to { transform: rotate(-5deg);}
+}
+
 .loading-rotate {
   background-color: #262626;
   perspective: 200px;
 }
 
-.loading-rotate .animate {
+.loading-rotate .loading-square {
   height: 100px;
   width: 100px;
   background-color: white;
@@ -46,11 +51,35 @@
   0% { transform: rotateX(0deg) rotateY(0deg); }
   
   50% { transform: rotateX(0deg) rotateY(180deg); }
-
+  
   100% { transform: rotateX(180deg) rotateY(180deg); }
 }
 
-@keyframes float {
-    from { transform: rotate(5deg);}
-    to { transform: rotate(-5deg);}
+.scrolling-background {
+  height: 75vh;
+  background-image: url("../../../../public/driving/bg.jpg");
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  background-position: bottom left;
+  animation: scroll 15s linear infinite;
+}
+
+.scrolling-background .car {
+  position: absolute;
+  left: 40em;
+  bottom: -175em;
+  width: 20em;
+}
+
+.scrolling-background .motobike {
+  position: absolute;
+  left: 80em;
+  bottom: -165em;
+  width: 10em;
+}
+
+@keyframes scroll {
+  from { background-position: bottom left; }
+
+  to { background-position: bottom right; }
 }
