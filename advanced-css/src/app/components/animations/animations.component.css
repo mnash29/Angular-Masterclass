@@ -161,6 +161,10 @@
   to { left: 100%; }
 }
 
+.section:nth-of-type(7) {
+  background-color: #262626;
+}
+
 .heart {
   position: relative;
   width: 10em;
@@ -202,4 +206,25 @@
   50% { transform: rotate(45deg) scale(1.2); }
   60% { transform: rotate(45deg) scale(1.5); }
   100% { transform: rotate(45deg) scale(1); }
+}
+
+.castle {
+  padding: 0;
+  margin: 0;
+  background: url("../../../../public/rain/castle.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rain {
+  height: 100%;
+  width: 100%;
+  opacity: 25%;
+  background: url("../../../../public/rain/rain.png");
+  animation: rainfall 0.3s linear infinite;
+}
+
+@keyframes rainfall {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 10% 100%; }
 }
