@@ -310,3 +310,51 @@
     rotate(360deg);
   }
 }
+
+.wave-fill a {
+  text-decoration: none;
+  padding: 2em 3em;
+  color: #00aeff;
+  font-size: 3rem;
+  letter-spacing: 1rem;
+  border: 2px solid #00aeff;
+  text-transform: uppercase;
+  position: relative;
+  overflow: clip;
+  transition: all 1s;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: calc(100% + 22px);
+  background-color: #00aeff;
+  transition: all 1s;
+  z-index: -1;
+}
+
+.wave::before {
+  content: '';
+  position: absolute;
+  top: -22px;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  background: url("../../../../public/wave.png");
+  animation: wavy 0.5s linear infinite;
+}
+
+a:hover .wave {
+  top: 0;
+}
+
+.wave-fill a:hover {
+  color: white;
+}
+
+@keyframes wavy {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 118px; }
+}
