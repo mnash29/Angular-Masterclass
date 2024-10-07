@@ -44,10 +44,10 @@
   width: 100px;
   background-color: white;
   border-radius: 10%;
-  animation: rotate 2s linear infinite;
+  animation: rotate-square 2s linear infinite;
 }
 
-@keyframes rotate {
+@keyframes rotate-square {
   0% { transform: rotateX(0deg) rotateY(0deg); }
   
   50% { transform: rotateX(0deg) rotateY(180deg); }
@@ -227,4 +227,86 @@
 @keyframes rainfall {
   0% { background-position: 0% 0%; }
   100% { background-position: 10% 100%; }
+}
+
+.icon-bar ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.icon-bar ul li {
+  list-style-type: none;
+  width: 11em;
+  height: 11em;
+  margin: 0 20px;
+  border: 2px solid #0a3d62;
+  border-radius: 50%;
+  transition: all 0.5s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-bar ul li i {
+  font-size: 5rem;
+  color: #0a3d62;
+  transition: all 0.5s;
+}
+
+.icon-bar ul li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a3d62;
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.icon-bar ul li:hover::before {
+  opacity: 1;
+  transform: scale(0.8);
+}
+
+.icon-bar ul li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.5s;
+  opacity: 0;
+  border: 2px dashed #0a3d62;
+  box-sizing: border-box;
+}
+
+.icon-bar ul li:hover::after {
+  opacity: 1;
+  animation: rotate-circle 10s linear  infinite;
+}
+
+.icon-bar ul li:hover i {
+  color: white;
+}
+
+@keyframes rotate-circle {
+  0% { 
+    transform: scale(0.92)
+    rotate(0deg);
+  }
+  
+  100% { 
+    transform: scale(0.92)
+    rotate(360deg);
+  }
 }
