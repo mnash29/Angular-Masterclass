@@ -443,3 +443,17 @@ a:hover .wave {
     transform: translateY(340px) scale(0);
   }
 }
+
+.img-clip img {
+  width: 800px;
+  height: 500px;
+
+  /* Triangle */
+  /* clip-path: polygon(50% 0%, 15% 100%, 85% 100%); */
+
+  /* Circle */
+  /* clip-path: circle(35% at 50% 50%); */
+
+  /* View more shapes at https://bennettfeely.com/clippy/*/
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
