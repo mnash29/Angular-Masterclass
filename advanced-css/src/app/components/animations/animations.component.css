@@ -329,7 +329,7 @@
   width: 100%;
   height: 100%;
   left: 0;
-  top: calc(100% + 22px);
+  top: calc(100% + 50px);
   background-color: #00aeff;
   transition: all 1s;
   z-index: -1;
@@ -338,10 +338,11 @@
 .wave::before {
   content: '';
   position: absolute;
-  top: -22px;
+  top: -32px;
   left: 0;
   width: 100%;
   height: 22px;
+  transform: scale(2);
   background: url("../../../../public/wave.png");
   animation: wavy 0.5s linear infinite;
 }
@@ -357,4 +358,26 @@ a:hover .wave {
 @keyframes wavy {
   0% { background-position-x: 0; }
   100% { background-position-x: 118px; }
+}
+
+.section:nth-of-type(11) {
+  background-color: #262626;
+}
+
+.slider {
+  width: 800px;
+  height: 400px;
+  background: url("../../../../public/slider/img-1.jpg");
+  animation: change-bg 10s linear  infinite;
+}
+
+@keyframes change-bg {
+  0% { background: url("../../../../public/slider/img-1.jpg");}
+  20% { background: url("../../../../public/slider/img-1.jpg");}
+  25% { background: url("../../../../public/slider/img-2.jpg");}
+  45% { background: url("../../../../public/slider/img-2.jpg");}
+  50% { background: url("../../../../public/slider/img-3.jpg");}
+  70% { background: url("../../../../public/slider/img-3.jpg");}
+  75% { background: url("../../../../public/slider/img-4.jpg");}
+  100% { background: url("../../../../public/slider/img-4.jpg");}
 }
