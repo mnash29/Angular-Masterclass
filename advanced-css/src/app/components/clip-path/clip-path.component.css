@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.section {
+  background-color: #2f2f2f;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section .wave {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.wave h2 {
+  font-family: Raleway;
+  position: absolute;
+  text-align: center;
+  line-height: 500px;
+  font-size: 170px;
+  text-transform: uppercase;
+}
+
+.wave h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #03a9f4;;
+}
+
+.wave h2:nth-child(2) {
+  color: #03a9f4;
+  animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0% {
+    clip-path: polygon(0 34%, 16% 49%, 30% 57%, 46% 61%, 64% 58%, 77% 53%, 88% 45%, 100% 33%, 100% 100%, 0 100%);
+  }
+
+  50% {
+    clip-path: polygon(0 59%, 13% 42%, 26% 31%, 38% 25%, 59% 25%, 75% 33%, 88% 45%, 100% 59%, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 34%, 16% 49%, 30% 57%, 46% 61%, 64% 58%, 77% 53%, 88% 45%, 100% 33%, 100% 100%, 0 100%);
+  }
+}
