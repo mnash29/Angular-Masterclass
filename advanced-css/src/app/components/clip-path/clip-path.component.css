@@ -31,7 +31,7 @@
 
 .wave h2:nth-child(1) {
   color: transparent;
-  -webkit-text-stroke: 2px #03a9f4;;
+  -webkit-text-stroke: 2px #03a9f4;
 }
 
 .wave h2:nth-child(2) {
@@ -41,14 +41,158 @@
 
 @keyframes wave {
   0% {
-    clip-path: polygon(0 34%, 16% 49%, 30% 57%, 46% 61%, 64% 58%, 77% 53%, 88% 45%, 100% 33%, 100% 100%, 0 100%);
+    clip-path: polygon(
+      0 34%,
+      16% 49%,
+      30% 57%,
+      46% 61%,
+      64% 58%,
+      77% 53%,
+      88% 45%,
+      100% 33%,
+      100% 100%,
+      0 100%
+    );
   }
 
   50% {
-    clip-path: polygon(0 59%, 13% 42%, 26% 31%, 38% 25%, 59% 25%, 75% 33%, 88% 45%, 100% 59%, 100% 100%, 0 100%);
+    clip-path: polygon(
+      0 59%,
+      13% 42%,
+      26% 31%,
+      38% 25%,
+      59% 25%,
+      75% 33%,
+      88% 45%,
+      100% 59%,
+      100% 100%,
+      0 100%
+    );
   }
 
   100% {
-    clip-path: polygon(0 34%, 16% 49%, 30% 57%, 46% 61%, 64% 58%, 77% 53%, 88% 45%, 100% 33%, 100% 100%, 0 100%);
+    clip-path: polygon(
+      0 34%,
+      16% 49%,
+      30% 57%,
+      46% 61%,
+      64% 58%,
+      77% 53%,
+      88% 45%,
+      100% 33%,
+      100% 100%,
+      0 100%
+    );
   }
+}
+
+.img-menu {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background-color: #262626;
+}
+
+.img-menu .clip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+.img-1 {
+  background: url("../../../../public/img-menu/1.jpg");
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(14% 0, 0 0, 0 100%, 39% 100%);
+}
+
+.img-2 {
+  background: url("../../../../public/img-menu/2.jpg");
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(14% 0, 78% 0, 63% 100%, 39% 100%);
+}
+
+.img-3 {
+  background: url("../../../../public/img-menu/3.jpg");
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(100% 0, 78% 0, 63% 100%, 100% 100%);
+}
+
+.img-menu:hover .clip {
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+}
+
+.img-menu .clip:hover {
+  clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+}
+
+.card {
+  position: relative;
+  width: 335px;
+  height: 500px;
+}
+
+.card .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  clip-path: circle(70.7% at 50% 50%);
+}
+
+.img img {
+  width: 100%;
+}
+
+.card:hover .img {
+    clip-path: circle(19% at 50% 38%);
+}
+
+.content {
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    text-align: center;
+}
+
+.content h2 {
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.content p {
+    margin-bottom: 25px;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.content a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+}
+
+.content h2, p, a {
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateY(20px);
+}
+
+.card:hover .content h2,
+.card:hover .content p,
+.card:hover .content a {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+    color: white;
 }
